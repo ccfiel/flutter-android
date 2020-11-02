@@ -26,7 +26,6 @@ RUN apk update && apk upgrade && apk --update add \
 RUN pip3 install firebase-admin
 RUN pip3 install google-cloud-storage
 RUN pip3 install google-cloud-firestore
-RUN gem install fastlane -NV
 RUN gem install google-api-client
 
 RUN wget --quiet --output-document=flutter.tar.xz ${FLUTTER_VERSION} \
