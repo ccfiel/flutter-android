@@ -1,14 +1,15 @@
-FROM runmymind/docker-android-sdk
+FROM runmymind/docker-android-sdk:alpine-standalone
 
-ENV FLUTTER_CHANNEL=stable
-ENV FLUTTER_VERSION=1.2.1-${FLUTTER_CHANNEL}
+ENV FLUTTER_VERSION: "https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_1.22.2-stable.tar.xz"
 
-RUN wget --quiet --output-document=flutter.tar.xz https://storage.googleapis.com/flutter_infra/releases/${FLUTTER_CHANNEL}/linux/flutter_linux_v${FLUTTER_VERSION}.tar.xz \
+RUN apk update
+RUN apk upgrade
+RUN apk add wget tar unzip bash
+RUN apk add --update --no-cache lcov
+
+RUN wget --quiet --output-document=flutter.tar.xz ${FLUTTER_VERSION} \
     && tar xf flutter.tar.xz -C / \
     && rm flutter.tar.xz
 
-RUN apt-get update && apt-get install -y lcov
-
 ENV PATH=$PATH:/flutter/bin
-    
 RUN flutter doctor
