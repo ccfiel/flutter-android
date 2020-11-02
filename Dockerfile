@@ -15,6 +15,14 @@ RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
 RUN python3 -m ensurepip
 RUN pip3 install --no-cache --upgrade pip setuptools
 
+
+
+RUN pip3 install firebase-admin
+RUN pip3 install google-cloud-storage
+RUN pip3 install google-cloud-firestore
+RUN gem install fastlane -NV
+RUN gem install google-api-client
+
 RUN wget --quiet --output-document=flutter.tar.xz ${FLUTTER_VERSION} \
     && tar xf flutter.tar.xz -C / \
     && rm flutter.tar.xz
