@@ -5,7 +5,6 @@ ENV FLUTTER_VERSION: "https://storage.googleapis.com/flutter_infra/releases/stab
 RUN apk update
 RUN apk upgrade
 RUN apk add wget tar unzip bash
-RUN apk add --update --no-cache lcov
 
 RUN apk add --virtual build-dependencies build-base gcc wget git 
 RUN apk add libffi-dev python3-dev openssl-dev
