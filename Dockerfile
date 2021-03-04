@@ -28,7 +28,7 @@ RUN pip3 install google-cloud-storage
 RUN pip3 install google-cloud-firestore
 RUN gem install google-api-client
 
-RUN wget --quiet --output-document=flutter.tar.xz ${FLUTTER_VERSION} \
+RUN wget --output-document=flutter.tar.xz ${FLUTTER_VERSION} \
     && tar xf flutter.tar.xz -C / \
     && rm flutter.tar.xz
 
