@@ -1,6 +1,6 @@
 FROM runmymind/docker-android-sdk:alpine-standalone
 
-ENV FLUTTER_VERSION="https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_1.22.4-stable.tar.xz"
+ENV FLUTTER_VERSION="https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_1.22.6-stable.tar.xz"
 
 RUN apk update
 RUN apk upgrade
