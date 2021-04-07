@@ -32,6 +32,9 @@ RUN wget --quiet --output-document=flutter.tar.xz ${FLUTTER_VERSION} \
     && tar xf flutter.tar.xz -C / \
     && rm flutter.tar.xz
 
+RUN npm -g config set user root
+
+RUN apk add --no-cache --update ca-certificates && npm install firebase-tools -g
 ENV PATH=$PATH:/flutter/bin
 RUN flutter doctor
 RUN python --version
